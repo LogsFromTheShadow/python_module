@@ -15,8 +15,8 @@ if __name__ == "__main__":
             except ValueError:
                 pass
         if len(Score_list) == 0:
-            print("No scores provided. Usage: python3 ft_score_analytics.py "
-                  "<score1> <score2> ...")
+            print("No valid scores provided. Usage: "
+                  "python3 ft_score_analytics.py <score1> <score2> ...")
         else:
             len_score_list = len(Score_list)
             total_score = sum(x for x in Score_list)
