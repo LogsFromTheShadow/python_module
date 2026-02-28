@@ -73,7 +73,7 @@ class GardenManager:
             for p in self.plants:
                 score += p.height
                 if isinstance(p, FloweringPlant):
-                    score += 15  # Bonus pour les plantes à fleurs
+                    score += 15
                 if isinstance(p, PrizeFlower):
                     score += p.points
             return score
@@ -146,7 +146,6 @@ if __name__ == "__main__":
     print(f"Height validation test: {GardenManager.validate_height(10)}")
 
     bob = GardenManager("Bob")
-    # Ajout direct pour Bob afin de correspondre à l'exemple
     bob.plants.extend([Plant("Pine", 40), FloweringPlant("Tulip", 37, "pink")])
 
     print(f"Garden scores - Alice: {alice.get_score()},"
