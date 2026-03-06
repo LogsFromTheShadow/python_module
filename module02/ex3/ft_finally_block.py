@@ -1,11 +1,4 @@
 def water_plants(plant_list):
-<<<<<<< HEAD
-    pass
-
-
-def test_watering_system():
-    pass
-=======
     print("Opening watering system")
 
     try:
@@ -37,6 +30,6 @@ def test_watering_system():
     water_plants(bad_plants)
     print("Cleanup always happens, even with errors")
 
+
 if __name__ == "__main__":
     test_watering_system()
->>>>>>> 05625ada837f04550e5ae1e6ce2a3178503a4d29

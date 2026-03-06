@@ -21,8 +21,7 @@ class GardenManager:
         """Adds a plant after validation."""
         if not name or not isinstance(name, str):
             raise PlantNameError("Plant name cannot be empty!")
-        
-        # On stocke la plante sous forme de dictionnaire simple
+
         plant = {
             "name": name,
             "water": int(water),
@@ -37,11 +36,9 @@ class GardenManager:
         try:
             for plant in self.plants:
                 print(f"Watering {plant['name']} - success")
-                # Ici on pourrait simuler une erreur aléatoire
         except Exception as e:
             print(f"Error during watering: {e}")
         finally:
-            # Ce bloc s'exécute TOUJOURS, même en cas d'erreur
             print("Closing watering system (cleanup)")
 
     def check_health(self):
@@ -56,7 +53,7 @@ class GardenManager:
                     raise PlantHealthError(
                         f"Sun level {plant['sun']} is too low"
                     )
-                
+
                 print(f"{plant['name']}: healthy "
                       f"(water: {plant['water']}, sun: {plant['sun']})")
             except PlantHealthError as e:
@@ -71,7 +68,6 @@ def test_garden_management():
     print("=== Garden Management System ===")
     garden = GardenManager()
 
-    # 1. Adding plants
     print("Adding plants to garden...")
     try:
         garden.add_plant("tomato", 5, 8)
@@ -79,26 +75,21 @@ def test_garden_management():
         print(f"Error: {e}")
 
     try:
-        # On ajoute une laitue avec trop d'eau pour tester check_health plus tard
         garden.add_plant("lettuce", 15, 6)
     except GardenError as e:
         print(f"Error: {e}")
 
     try:
-        # Test nom vide
         garden.add_plant("", 5, 5)
     except GardenError as e:
         print(f"Error adding plant: {e}")
 
-    # 2. Watering (Resource Management)
     print("Watering plants...")
     garden.water_plants()
 
-    # 3. Checking Health
     print("Checking plant health...")
     garden.check_health()
 
-    # 4. Error Recovery
     print("Testing error recovery...")
     try:
         garden.trigger_tank_error()
