@@ -1,4 +1,4 @@
-def check_temperature(temp_str):
+def check_temperature(temp_str: str) -> None:
 
     try:
         print(f"Testing temperature: {temp_str}")
@@ -13,7 +13,7 @@ def check_temperature(temp_str):
         print(f"Error: '{temp_str}' is not a valid number")
 
 
-def test_temperature_input():
+def test_temperature_input() -> None:
     check_temperature("25")
     print()
     check_temperature("abc")

@@ -10,7 +10,7 @@ class WaterError(GardenError):
     pass
 
 
-def arroser(litres):
+def arroser(litres: float) -> None:
     if litres < 0:
         raise WaterError("Impossible d'arroser avec une"
                          "quantité négative d'eau !")
@@ -22,11 +22,11 @@ except WaterError as e:
     print(f"erreur detecte: {e}")
 
 
-def verify_plants():
+def verify_plants() -> None:
     raise PlantError("The tomato plant is wilting!")
 
 
-def verify_water():
+def verify_water() -> None:
     raise WaterError("Not enough water in the tank!")
 
 

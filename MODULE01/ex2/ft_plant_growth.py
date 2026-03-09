@@ -24,8 +24,6 @@ class Plant:
     def increase_age(self) -> None:
         """
         Instance method to increase the plant's age.
-        Renamed from 'Age' to respect snake_case conventions and avoid
-        conflict with the 'age' instance attribute.
         """
         self.age += 1
 
@@ -35,17 +33,16 @@ class Plant:
 
 
 if __name__ == "__main__":
-    plant1 = Plant("Rose", 25, 30)
-    plant2 = Plant("Sunflower", 80, 45)
-    plant3 = Plant("cactus", 15, 120)
+    plant = Plant("Rose", 25, 30)
+    initial_height = plant.height
 
-    count: int = 1
-    for x in range(1, 7):
-        print(f"=== Day {count} ===")
-        plant1.get_info()
-        plant1.grow()
-        plant1.increase_age()
-        count += 1
+    print("=== Day 1 ===")
+    plant.get_info()
 
-    print(f"=== Day {count} ===")
-    print(f"Growth this week: +{count - 1}cm")
+    # Simulate growth for 6 days to reach Day 7
+    for _ in range(6):
+        plant.grow()
+        plant.increase_age()
+
+    print("=== Day 7 ===")
+    plant.get_info()

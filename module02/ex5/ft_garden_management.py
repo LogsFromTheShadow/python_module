@@ -1,3 +1,6 @@
+from typing import Any
+
+
 class GardenError(Exception):
     """Base class for garden exceptions."""
     pass
@@ -14,10 +17,10 @@ class PlantHealthError(GardenError):
 
 
 class GardenManager:
-    def __init__(self):
-        self.plants = []
+    def __init__(self) -> None:
+        self.plants: list[dict[str, Any]] = []
 
-    def add_plant(self, name, water, sun):
+    def add_plant(self, name: str, water: int, sun: int) -> None:
         """Adds a plant after validation."""
         if not name or not isinstance(name, str):
             raise PlantNameError("Plant name cannot be empty!")
@@ -30,7 +33,7 @@ class GardenManager:
         self.plants.append(plant)
         print(f"Added {name} successfully")
 
-    def water_plants(self):
+    def water_plants(self) -> None:
         """Simulates watering with resource cleanup."""
         print("Opening watering system")
         try:
@@ -41,7 +44,7 @@ class GardenManager:
         finally:
             print("Closing watering system (cleanup)")
 
-    def check_health(self):
+    def check_health(self) -> None:
         """Checks stats for all plants."""
         for plant in self.plants:
             try:
@@ -59,12 +62,12 @@ class GardenManager:
             except PlantHealthError as e:
                 print(f"Error checking {plant['name']}: {e}")
 
-    def trigger_tank_error(self):
+    def trigger_tank_error(self) -> None:
         """Method specifically to test external error recovery."""
         raise GardenError("Not enough water in tank")
 
 
-def test_garden_management():
+def test_garden_management() -> None:
     print("=== Garden Management System ===")
     garden = GardenManager()
 

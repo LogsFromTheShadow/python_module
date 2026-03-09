@@ -1,4 +1,4 @@
-def garden_operations(error):
+def garden_operations(error: str) -> None:
     if error == "wrong data":
         int("abc")
     elif error == "zero_div":
@@ -10,7 +10,7 @@ def garden_operations(error):
         print(garden["tulipe"])
 
 
-def error_types():
+def error_types() -> None:
     print("=== Garden Error Types Demo ===")
     print("")
     try:
