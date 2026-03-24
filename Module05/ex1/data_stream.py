@@ -116,7 +116,7 @@ def main() -> None:
     processor.add_stream(trans)
     processor.add_stream(event)
 
-    mixed_data = {
+    mixed_data: Dict[str, List[Any]] = {
         "SENSOR_001": [25.0, 26.5],
         "TRANS_001": ["buy:50", "buy:20", "sell:10", "buy:5"],
         "EVENT_001": ["update", "reboot", "error_critical"]
