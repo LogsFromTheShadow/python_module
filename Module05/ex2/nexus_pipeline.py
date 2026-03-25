@@ -60,7 +60,7 @@ class OutputStage:
 class ProcessingPipeline(ABC):
     """Classe de base abstraite (ABC) orchestrant le pipeline."""
 
-    def __init__(self, pipeline_id: str):
+    def __init__(self, pipeline_id: str) -> None:
         self.pipeline_id = pipeline_id
         self.stages: List[ProcessingStage] = []
         # Utilisation du module collections
@@ -85,7 +85,7 @@ class ProcessingPipeline(ABC):
 class JSONAdapter(ProcessingPipeline):
     """Adaptateur spécifique pour le format JSON."""
 
-    def __init__(self, pipeline_id: str):
+    def __init__(self, pipeline_id: str) -> None:
         # Utilisation de super() exigée
         super().__init__(pipeline_id)
 
@@ -100,7 +100,7 @@ class JSONAdapter(ProcessingPipeline):
 class CSVAdapter(ProcessingPipeline):
     """Adaptateur spécifique pour le format CSV."""
 
-    def __init__(self, pipeline_id: str):
+    def __init__(self, pipeline_id: str) -> None:
         super().__init__(pipeline_id)
 
     def process(self, data: Any) -> Union[str, Any]:
@@ -112,7 +112,7 @@ class CSVAdapter(ProcessingPipeline):
 class StreamAdapter(ProcessingPipeline):
     """Adaptateur spécifique pour les flux en temps réel."""
 
-    def __init__(self, pipeline_id: str):
+    def __init__(self, pipeline_id: str) -> None:
         super().__init__(pipeline_id)
 
     def process(self, data: Any) -> Union[str, Any]:
@@ -124,7 +124,7 @@ class StreamAdapter(ProcessingPipeline):
 class NexusManager:
     """Gestionnaire polymorphe de pipelines."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.pipelines: List[ProcessingPipeline] = []
 
     def register(self, pipeline: ProcessingPipeline) -> None:
