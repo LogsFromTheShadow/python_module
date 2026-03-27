@@ -32,7 +32,6 @@ class SensorStream(DataStream):
 
     def process_batch(self, data_batch: List[Any]) -> str:
         self.processed_count += len(data_batch)
-        # Simulation d'un calcul de moyenne pour l'exemple
         temps = [d for d in data_batch if isinstance(d, (int, float))]
         avg = sum(temps) / len(temps) if temps else 0
         return (f"Sensor analysis: {len(data_batch)} readings processed, "
@@ -94,7 +93,6 @@ def main() -> None:
     """Point d'entrée principal pour démontrer le système."""
     print("=== CODE NEXUS - POLYMORPHIC STREAM SYSTEM ===")
 
-    # 1. Initialisation des flux
     print("Initializing Sensor Stream...")
     sensor = SensorStream("SENSOR_001")
     print(f"Stream ID: {sensor.stream_id}, Type: Environmental Data")
@@ -110,7 +108,6 @@ def main() -> None:
     print(f"Stream ID: {event.stream_id}, Type: System Events")
     print(event.process_batch(["login", "error_db", "logout"]))
 
-    # 2. Démonstration du StreamProcessor (Polymorphisme)
     processor = StreamProcessor()
     processor.add_stream(sensor)
     processor.add_stream(trans)
@@ -125,7 +122,6 @@ def main() -> None:
     processor.run_all(mixed_data)
 
     print("\nStream filtering active: High-priority data only")
-    # Exemple de filtrage
     critical_sensors = sensor.filter_data([20, 45, 15, 50], criteria="high")
     print(f"Filtered results: {len(critical_sensors)} critical sensor alerts")
 
