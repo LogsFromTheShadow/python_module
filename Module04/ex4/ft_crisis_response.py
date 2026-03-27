@@ -24,12 +24,6 @@ def handle_archive_access(filename, is_routine=False):
         print(f"RESPONSE: Unexpected system anomaly: {e}")
         print("STATUS: Crisis handled, system stabilized")
 
-    print("=== CYBER ARCHIVES - CRISIS RESPONSE SYSTEM ===")
-    handle_archive_access('lost_archive.txt')
-    handle_archive_access('classified_vault.txt')
-    handle_archive_access('standard_archive.txt', is_routine=True)
-    print("All crisis scenarios handled successfully. Archives secure.")
-
 
 if __name__ == "__main__":
     print("=== CYBER ARCHIVES - CRISIS RESPONSE SYSTEM ===")

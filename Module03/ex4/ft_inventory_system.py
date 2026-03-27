@@ -5,8 +5,13 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         inventory = {}
         for x in sys.argv[1:]:
-            parts = x.split(":")
-            inventory[parts[0]] = int(parts[1])
+            try:
+                parts = x.split(":")    
+
+                print(parts)
+                inventory[parts[0]] = int(parts[1])
+            except (ValueError, IndexError):
+                print("this is not a valid value sir")
 
         print("=== Inventory System Analysis ===")
         total_items = sum(inventory.values())
@@ -19,8 +24,10 @@ if __name__ == "__main__":
         items_list = []
         for k, v in inventory.items():
             items_list.append((k, v))
+        print(items_list)
 
         n = len(items_list)
+        print(n)
         for i in range(n):
             for j in range(0, n - i - 1):
                 if items_list[j][1] < items_list[j + 1][1]:
